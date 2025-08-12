@@ -1,22 +1,13 @@
 import { Component } from '@angular/core';
 
-import { DUMMY_USERS } from './dummy-users';
-
+import { HeaderComponent } from './header/header.component';
+import { UserInputComponent } from './user-input/user-input.component';
+import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
 
 @Component({
-  selector: 'app-root',    
+  selector: 'app-root',
+  standalone: true,
+  imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  users = DUMMY_USERS;
-  selectedUserId?: string;
-
-  get selectedUser(){
-    return this.users.find((user) => user.id === this.selectedUserId );
-  }
-
-  onSelectUser(id: string) {
-    this.selectedUserId = id;
-  }
-}
+export class AppComponent {}
